@@ -21,6 +21,7 @@ export class BlogRepository {
          const newBlog = new Blog()
          newBlog.title = createBlogDto.title
          newBlog.authorId = authorId
+         newBlog.text = createBlogDto.text
          
          return await this.blogRepository.save(newBlog)
      }
@@ -44,8 +45,10 @@ export class BlogRepository {
       return await this.blogRepository.delete(blogId)
    }
 
-   async updateBlog(blogId: number, updateBlogDto: UpdateBlogDto) {
-      await this.blogRepository.update(blogId, updateBlogDto)
+   async updateBlog(blogId: number, updateBlogDto: UpdateBlogDto)
+   
+   {
+      await this.blogRepository.update(blogId, updateBlogDto)  
       const blog = this.findOneBlog(blogId)
       return blog
    }

@@ -5,4 +5,9 @@ export class CreateBlogDto {
     @IsNotEmpty({ message: 'Title is required' })
     title: string;
 
+
+    @IsString()
+    text: string
+
+    
 }
